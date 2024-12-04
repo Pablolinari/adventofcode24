@@ -9,7 +9,7 @@ using namespace std;
 
 
 int main (int argc, char *argv[]) {
-   std::ifstream archivo("input2.txt"); // Abre el archivo en modo lectura
+   std::ifstream archivo("input.txt"); // Abre el archivo en modo lectura
     if (!archivo.is_open()) {
         std::cerr << "Error: No se pudo abrir el archivo." << std::endl;
         return 1;
@@ -23,7 +23,6 @@ int main (int argc, char *argv[]) {
 	string element ;
     // Leer el archivo línea por línea
     while (getline(archivo,cad)) { // Lee dos enteros por línea
-		cout << cad<<endl;
 		stringstream ss(cad);
 		while (ss>>element) {
 			v.push_back(stoi(element));
@@ -46,7 +45,7 @@ int main (int argc, char *argv[]) {
 					}
 				
 				}else{
-					cond =abs(v[i]-v[i+1])>=1 && abs(v[i]-v[i+1])<=3;
+					cond =(abs(v[i]-v[i+1])>=1 && abs(v[i]-v[i+1])<=3);
 					if(subir==true ){
 						if(v[i]<v[i+1]&& cond){
 							seguir =true;
@@ -69,6 +68,11 @@ int main (int argc, char *argv[]) {
 				cout<< safe<< endl;
 			}
 			v.clear();
+			i=0;
+			subir=false;
+			bajar=false;
+			seguir=true;
+
 					
 		}
     
